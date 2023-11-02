@@ -5,7 +5,7 @@ on:
     types: [released]
 
 jobs:
-  release:
+  changelog:
     runs-on: ubuntu-latest
 
     permissions:
