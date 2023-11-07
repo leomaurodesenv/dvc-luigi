@@ -2,11 +2,7 @@ name: "Continuous Integration"
 
 run-name: Running tests on "${{ github.ref }}" by "${{ github.actor }}"
 
-on:
-  push:
-    # Ignore following branches
-    branches-ignore:
-      - "dev/*"
+on: push
 
 jobs:
   # Run pre-commit hooks
@@ -23,6 +19,7 @@ jobs:
 
   # Run tests
   tests:
+    needs: [pre-commit]
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
